@@ -1,0 +1,81 @@
+<div id="globalfooter-main">
+	<p>Site Web de la Services d'assurance RBC Inc, &copy; 1995-2012</p>
+	<p id="globalfooter-tool-line1">
+		<span class="globalfooter-tool" id="tool-textresize"><span id="tool-textresize"><strong>Taille du texte:</strong> <a href="#" id="tool-textresize-normal"><img src="/uos/_assets/images/tools/textresize-spacer.gif" alt="Normale" /></a><a href="#" id="tool-textresize-large"><img src="/uos/_assets/images/tools/textresize-spacer.gif" alt="Grande" /></a><a href="#" id="tool-textresize-extralarge"><img src="/uos/_assets/images/tools/textresize-spacer.gif" alt="Tr&egrave;s Grand" /></a></span></span>
+	</p>
+	<p>
+	<a href="http://www.rbc.com/rensperssecurite/ca/" title="Protection des renseignements et S&eacute;curit&eacute; (ouvre une nouvelle fen&ecirc;tre)" target="_blank" onclick="return popupNewbrowser(this.href)">Protection des renseignements et S&eacute;curit&eacute;</a> | <a href="http://www.rbc.com/conditions-dutilisation" title="Conditions d'utilisation (ouvre une nouvelle fen&ecirc;tre)" onclick="return popupHelp(this.href)" target="_blank">Conditions d'utilisation</a> | <a href="http://www.rbc.com/accessibilite/" title="Accessibilit&eacute; (ouvre une nouvelle fen&ecirc;tre)" onclick="return popupNewbrowser(this.href)" target="_blank">Accessibilit&eacute;</a> | <a href="http://www.rbcassurances.com/assureurs.html" onclick="return popupNewbrowser(this.href)" title="Assureurs (ouvre une nouvelle fen&ecirc;tre)" target="_blank">Assureurs</a> | <a href="http://www.rbcassurances.com/centredassistance/servicealaclientele/satisfactionclientele.html" onclick="return popupNewbrowser(this.href)" title="F&eacute;licitations/Plaintes (ouvre une nouvelle fen&ecirc;tre)" target="_blank">F&eacute;licitations/Plaintes</a>
+	</p>
+	<p id="globalfooter-tool-line2">
+		<span class="globalfooter-tool" id="tool-totop"><a href="<!--#echo var="REQUEST_URI" -->#top" class="linkedtextandicon"><span>Haut de la page</span> <img src="/uos/_assets/images/footer/totopbutton.gif" alt="Haut de la page" width="16" height="16" /></a></span>
+	</p>
+</div>
+<script type="text/javascript">
+addLoadEvent(function() {
+    var links = document.links;
+    for (var i = 0; i < links.length; i++) {
+        if (links[i].href.search(/(?:\/centredassistance\/succursales-de-assurances(?:\/(?:index.html)?)?|\/succursales?(?:\/(?:index.html)?)?|\/assurancededommages\/cid-75619\.html)\s*$/) >= 0) {
+            links[i].href = 'http://www.rbcassurances.com/localisateur-de-succursales/index.html';
+            links[i].title = "(ouvre une nouvelle fenêtre)";
+            links[i].onclick = function() {
+                var LeftWindowPosition = ((document.all)?window.screenLeft:window.screenX)+50;
+                var TopWindowPosition = ((document.all)?window.screenTop:window.screenY)+5;
+                var newwindow = window.open(this.href,'','width=788,height=516,left=' + LeftWindowPosition + ',top=' + TopWindowPosition + ',scrollbars=yes,resizable=no,toolbar=no,menubar=no');
+                if (window.focus) newwindow.focus();
+                return false;
+            };
+            var skipIcon = false;
+            if (links[i].innerHTML.search(/<img/) != -1) {
+                skipIcon = true;
+            }
+            var ancestor = links[i].parentNode;
+            while (!skipIcon && ancestor) {
+                if (ancestor.className && ancestor.className.search(/globalfooter-relatedlinks-block/) != -1) {
+                    skipIcon = true;
+                    break;
+                }
+                ancestor = ancestor.parentNode;
+            }
+            if (!skipIcon) {
+                links[i].className = links[i].className + " linkedtextandicon";
+                links[i].innerHTML = "<span>" + links[i].innerHTML + "</span>&nbsp;";
+                var img = document.createElement("img");
+                img.src = "/uos/_assets/images/icons/newwindow.gif";
+                img.alt = "(ouvre une nouvelle fenêtre)";
+                img.className = "icon";
+                links[i].appendChild(img);
+            }
+        }
+    }
+});
+</script>
+
+<!-- START OF SmartSource Data Collector TAG -->
+<!-- Copyright (c) 1996-2011 Webtrends Inc.  All rights reserved. -->
+<!-- Version: 9.4.0 -->
+<!-- Tag Builder Version: 3.2  -->
+<!-- Created: 10/17/2011 2:34:22 PM -->
+<script src="/_assets-custom/js/webtrends.js" type="text/javascript"></script>
+<!-- ----------------------------------------------------------------------------------- -->
+<!-- Warning: The two script blocks below must remain inline. Moving them to an external -->
+<!-- JavaScript include file can cause serious problems with cross-domain tracking.      -->
+<!-- ----------------------------------------------------------------------------------- -->
+<script type="text/javascript">
+//<![CDATA[
+var _tag=new WebTrends();
+_tag.dcsGetId();
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+_tag.dcsCustom=function(){
+// Add custom parameters here.
+//_tag.DCSext.param_name=param_value;
+}
+_tag.dcsCollect();
+//]]>
+</script>
+<noscript>
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="//stats.royalbank.com/dcs52uje435n6quf9umekju6e_9w6n/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=9.4.0&amp;dcssip=www.rbcassurances.com"/></div>
+</noscript>
+<!-- END OF SmartSource Data Collector TAG -->

@@ -1,0 +1,757 @@
+/***************************************************************************************************************/
+/* 2016APR27 - DARAIOUS & JOHN - Added a 40x40 Accessibility Overlay for In-line Notices                       */
+/* 2015DEC15 - DARAIOUS & JOHN - Adjusted alignment of In-line Notices icons                                   */
+/* 2015DEC11 - DARAIOUS & JOHN - REMOVED duplicate border CSS from PENDING (causing the down arrow descrepancy */
+/* 2015DEC06 - DARAIOUS & JOHN - Modified the Padding-Left for message-header in In-line.                      */
+/* 2015DEC06 - DARAIOUS & JOHN - INLINE.                                                                       */
+/* 2015DEC03 - DARAIOUS & JOHN - Changed the ::before on all message to correct the FOCUS line on Chrome.      */
+/* 2015NOV30 - DARAIOUS & JOHN - FONT SIZE CHANGES - All headers and body text will now be the same size.      */
+/***************************************************************************************************************/
+
+/* IMPORTANT - This body font size matches that in the UOS stylesheet base.css - it is repeated here to allow the notices assets to be used as a standalone package.*/
+body{
+	font-size:81.5%;
+}
+
+
+@font-face {
+	font-family:"MetaBoldLF-Roman";
+	src:url('../font/MetaBoldLF-Roman.ttf?1380722708') format('truetype'), url('../font/MetaBoldLF-Roman.eot?1380722701') format('embedded-opentype')
+}
+@font-face {
+	font-family:"MetaNormalLF-Roman";
+	src:url('../font/MetaNormalLF-Roman.ttf?1380722707') format('truetype'), url('../font/MetaNormalLF-Roman.eot?1380722716') format('embedded-opentype')
+}
+@font-face {
+	font-family:"MetaNoIt";
+	src:url('../font/MetaNoIt.ttf?1377731439') format('truetype'), url('../font/MetaNoIt.eot?1377740714') format('embedded-opentype')
+}
+
+.uos-msg {
+	clear:both;
+	display:block;
+	width:100%;
+	max-width:100%;
+	margin-bottom:12px;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box
+}
+.uos-msg .uos-msg-header {
+	line-height:1.75em;
+	position:relative;
+	min-height:38px;
+	padding-left:45px;
+	border-width:2px 2px 0px 2px;
+	border-style:solid;
+	clear:both
+}
+/*******************************************************************************************************************/
+/* UPDATED 2015DEC01                                                                                               */
+/* Changed height from 50 to 40 and top from -5 to 0 to remove the blue focus line imperfection in Chrome          */
+/* Consolidated the width 42, height 40, left 0 and top 0 because it is now SAME for all notices                   */
+/*******************************************************************************************************************/
+.uos-msg .uos-msg-header:before {
+	content:" ";
+	display:block;
+	position:absolute;
+	float:left;
+	width:41px;
+	height:40px;
+	left:0;
+	top:0px;
+}
+.uos-msg .uos-msg-header:after {
+	content:" ";
+	display:block;
+	position:absolute;
+	bottom:-12px;
+	left:8px;
+	width:26px;
+	height:12px;
+	background-size:26px 12px
+}
+
+.uos-msg-header-align {
+	display:table;
+	height:38px;
+}
+/*******************************************************************************************************************/
+/* UPDATED 2015NOV24 */
+/* Consolidated the font-size + padding because it is now SAME for all notices
+/*******************************************************************************************************************/
+.uos-msg .uos-msg-title {
+	color:#FFFFFF;
+	font-family:Arial, Verdana, Geneva, Helvetica, sans-serif;
+	font-size:1.2em;
+	vertical-align:middle;
+	margin-right:4px;
+	padding:8px 15px 8px 0;
+}
+/*******************************************************************************************************************/
+/* UPDATED 2015NOV24 */
+/* Changed the uos-msg-subtitle font size from 1.6em to 1.2em to match the uos-msg-title */
+/* The class has been maintained so as to not impact code already in production */
+/*******************************************************************************************************************/
+.uos-msg .uos-msg-subtitle {
+	color:#FFFFFF;
+	font-family:Arial, Verdana, Geneva, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size:1.2em;
+	padding:8px 15px 8px 0;	
+}
+/*******************************************************************************************************************/
+/* 2015NOV24 - Changed from 1.2EM to 1.035EM because it directly inherits from base.css which is set to 0.8215em (13px)  */ 
+/*******************************************************************************************************************/
+.uos-msg .uos-msg-copy {
+	background:#FFFFFF;
+	font-family:Arial, Verdana, Geneva, Helvetica, sans-serif;
+	padding:15px 15px 10px 20px;
+	font-size:1.035em;
+	color: #2f2f2f
+}
+/*******************************************************************************************************************/
+/* 2015NOV25 - Added modifications to paragraph and list bottom margins when used inside notices */
+/*******************************************************************************************************************/
+.uos-msg .uos-msg-copy p {
+	margin-bottom: 4px;
+}
+.uos-msg .uos-msg-copy ul, .uos-msg .uos-msg-copy ol {
+	margin-bottom: 6px;
+}
+.uos-msg .uos-msg-copy ul li {
+	background: none;
+	list-style-type: disc;
+	line-height: 1.5em;
+	padding: 0;
+}
+.uos-msg.uos-msg-metafont .uos-msg-title {
+	font-family:"MetaBoldLF-Roman", Arial, Verdana, Geneva, Helvetica, sans-serif !important
+}
+.uos-msg.uos-msg-metafont .uos-msg-subtitle {
+	font-family:"MetaNormalLF-Roman", Arial, Verdana, Geneva, Helvetica, sans-serif !important
+}
+
+/*********************************************************************************************/
+/*** SIDEBAR SPECIFIC ************************************************************************/
+/*********************************************************************************************/
+
+.uos-msg-sidebar .uos-msg-header {
+	line-height:1.25em;
+}
+.uos-msg-sidebar .uos-msg-title {
+	font-size:1.1em
+}
+.uos-msg-sidebar .uos-msg-header-align {
+	border-spacing: 0px;
+}
+.uos-msg-sidebar .uos-msg-title, .uos-msg-sidebar .uos-msg-subtitle {
+	padding:4px 15px 4px 0px;
+}
+
+/*********************************************************************************************/
+/*** INLINE SPECIFIC ************************************************************************/
+/*********************************************************************************************/
+.uos-msg-inline .uos-msg-header {
+	border-bottom-width:2px;
+	background-color:#FFF !important;
+	padding-left:40px;
+}
+.uos-msg-inline .uos-msg-header:after {
+	display:none;
+}
+.uos-msg-inline .uos-msg-title {
+	padding-left:12px;
+}
+
+
+/*********************************************************************************************/
+/*********************************** CRITICAL MESSAGE ****************************************/
+/*********************************************************************************************/
+
+.uos-msg-critical .uos-msg-header {
+	background-color:#B6151E;
+	border-color:#B6151E;
+	/* DO NOT REMOVE Added padding because the exclamation icon is narrower than the others */
+	padding-left:40px;	
+}
+
+/* Consolidated (see .uos-msg-header:before above) the width 42, height 40, left 0 and top 0 because it is now SAME for all notices */
+.uos-msg-critical .uos-msg-header:before {
+	background:url("../img/attention-white.svg") no-repeat 50% 50%;
+	background-image:url(../img/attention-white-small.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/attention-white.svg);
+	background-size:22px 22px;
+	background-color:#B6151E;
+}
+.uos-msg-critical .uos-msg-header:after {
+	background:url(../img/arrow/red@1x.png) no-repeat
+}
+.uos-msg-critical .uos-msg-title, .uos-msg-critical .uos-msg-subtitle {
+	display:table-cell
+}
+.uos-msg-critical .uos-msg-copy {
+	border:2px solid #B6151E
+}
+
+.uos-msg-critical.uos-msg-sidebar .uos-msg-header:before {
+	background-image:url(../img/attention-white-medium.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/attention-white.svg);
+	background-size:22px 22px
+}
+/*
+.uos-msg-sidebar .uos-msg-title, .uos-msg-sidebar .uos-msg-subtitle {
+	padding:4px 15px 4px 0px;
+}
+*/
+.uos-msg-critical.uos-msg-inline .uos-msg-header:before {
+	background-position: 45% 50%;
+}
+.uos-msg-critical.uos-msg-inline .uos-msg-title {
+	color:#000 !important;
+}
+
+/*********************************************************************************************/
+/*********************************** WARNING MESSAGE *****************************************/
+/*********************************************************************************************/
+
+.uos-msg-warning .uos-msg-header {
+	background-color:#F7A90D;
+	border-color:#F7A90D;
+	/* Added padding because the exclamation icon is narrower than the others */
+	padding-left:40px;		
+}
+
+/* Consolidated (see .uos-msg-header:before above) the width 42, height 40, left 0 and top 0 because it is now SAME for all notices */
+.uos-msg-warning .uos-msg-header:before {
+	background:url("../img/attention-black.svg") no-repeat 50% 50%;
+	background-image:url(../img/attention-black-small.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/attention-black.svg);
+	background-size:22px 22px;
+	background-color:#F7A90D;
+}
+.uos-msg-warning .uos-msg-header:after {
+	background:url(../img/arrow/yellow@1x.png) no-repeat
+}
+.uos-msg-warning .uos-msg-title, .uos-msg-warning .uos-msg-subtitle {
+	color:#000 !important;
+	display:table-cell
+}
+.uos-msg-warning .uos-msg-copy {
+	border:2px solid #F7A90D
+}
+
+.uos-msg-warning.uos-msg-sidebar .uos-msg-header:before {
+	background-image:url(../img/attention-black-medium.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/attention-black.svg);
+	background-size:22px 22px
+}
+.uos-msg-warning.uos-msg-inline .uos-msg-header:before {
+	background-position: 45% 50%;
+}
+.uos-msg-warning.uos-msg-inline .uos-msg-title {
+	color:#000 !important;
+}
+
+/*********************************************************************************************/
+/*********************************** PENDING MESSAGE *****************************************/
+/*********************************************************************************************/
+
+.uos-msg-pending .uos-msg-header {
+	background-color:#3A7849;
+	border-color:#3A7849;
+}
+
+/* Consolidated (see .uos-msg-header:before above) the width 42, height 40, left 0 and top 0 because it is now SAME for all notices */
+.uos-msg-pending .uos-msg-header:before {
+	background:url("../img/pending.svg") no-repeat 50% 50%;
+	background-image:url(../img/pending-small.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/pending.svg);
+	background-size:22px 22px;
+	background-color:#3A7849;
+}
+.uos-msg-pending .uos-msg-header:after {
+	background:url(../img/arrow/green@1x.png) no-repeat;
+}
+/*********************************************************************************************/
+/* UPDATED 2015NOV24 */
+/*
+.uos-msg-pending .uos-msg-title {
+	font-size:1.2em
+}
+*/
+/* 2015NOV24 - Changed from .9EM to 1EM so it directly inherits from base.css */ 
+/* Commented out because it is same for all notices */
+/*
+.uos-msg-pending.uos-msg-sidebar {
+	font-size:1em
+}
+*/
+/*********************************************************************************************/
+
+.uos-msg-pending .uos-msg-title, .uos-msg-pending .uos-msg-subtitle {
+	color:#FFFFFF !important;
+	display:table-cell
+}
+
+.uos-msg-pending .uos-msg-copy {
+	border:2px solid #3A7849
+}
+
+.uos-msg-pending.uos-msg-sidebar .uos-msg-header:before {
+	background-image:url(../img/pending-medium.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/pending.svg);
+	background-size:22px 22px
+}
+.uos-msg-pending.uos-msg-inline .uos-msg-header:before {
+	background-position: 45% 50%;
+}
+.uos-msg-pending.uos-msg-inline .uos-msg-title {
+	color:#000 !important;
+}
+
+/*********************************************************************************************/
+/*********************************** CONFIRMATION MESSAGE ************************************/
+/*********************************************************************************************/
+
+.uos-msg-confirmation .uos-msg-header {
+	background-color:#3A7849;
+	border-color:#3A7849;
+}
+
+/* Consolidated (see .uos-msg-header:before above) the width 42, height 40, left 0 and top 0 because it is now SAME for all notices */
+.uos-msg-confirmation .uos-msg-header:before {
+	background:url("../img/confirm.svg") no-repeat 50% 50%;
+	background-image:url(../img/confirm-small.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/confirm.svg);
+	background-size:22px 22px;
+	background-color:#3A7849;
+}
+.uos-msg-confirmation .uos-msg-header:after {
+	background:url(../img/arrow/green@1x.png) no-repeat
+}
+
+/* UPDATED 2015NOV24 */
+/*
+.uos-msg-confirmation .uos-msg-header-align {
+	padding:21px 15px 20px 0;
+	line-height:2.25em
+}
+*/
+/* UPDATED 2015NOV24 */
+/*
+.uos-msg-confirmation .uos-msg-title {
+	font-size:2em
+}
+*/
+.uos-msg-confirmation .uos-msg-title, .uos-msg-confirmation .uos-msg-subtitle {
+	color:#FFFFFF !important;
+	display:inline-block
+}
+.uos-msg-confirmation .uos-msg-copy {
+	border:2px solid #3A7849
+}
+/* 2015NOV24 - Changed from .9EM to 1EM so it directly inherits from base.css */ 
+/* Commented out because it is same for all notices */
+/*
+.uos-msg-confirmation.uos-msg-sidebar {
+	font-size:1em
+}
+*/
+.uos-msg-confirmation.uos-msg-sidebar .uos-msg-header:before {
+	background-image:url(../img/confirm-medium.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/confirm.svg);
+	background-size:22px 22px
+}
+.uos-msg-confirmation.uos-msg-sidebar .uos-msg-title, .uos-msg-confirmation.uos-msg-sidebar .uos-msg-subtitle {
+	display:inline-block
+}
+.uos-msg-confirmation.uos-msg-inline .uos-msg-header:before {
+	background-position: 45% 50%;
+}
+.uos-msg-confirmation.uos-msg-inline .uos-msg-title {
+	color:#000 !important;
+}
+
+/*********************************************************************************************/
+/*********************************** APPROVAL MESSAGE ****************************************/
+/*********************************************************************************************/
+
+.uos-msg-approval .uos-msg-header {
+	background-color:#3A7849;
+	border-color:#3A7849;
+}
+
+/* Consolidated (see .uos-msg-header:before above) the width 42, height 40, left 0 and top 0 because it is now SAME for all notices */
+.uos-msg-approval .uos-msg-header:before {
+	background:url("../img/success.svg") no-repeat 50% 50%;
+	background-image:url(../img/success-small.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/success.svg);
+	background-size:22px 22px;
+	background-color:#3A7849;
+}
+.uos-msg-approval .uos-msg-header:after {
+	background:url(../img/arrow/green@1x.png) no-repeat
+}
+
+/* Updated 2015NOV24 above */
+/*
+.uos-msg-approval .uos-msg-header-align {
+	padding:21px 15px 20px 0;
+	line-height:2.25em
+}
+*/
+
+/* UPDATED 2015NOV24 */
+/*
+.uos-msg-approval .uos-msg-title {
+	font-size:2em
+}
+*/
+.uos-msg-approval .uos-msg-title, .uos-msg-approval .uos-msg-subtitle {
+	color:#FFFFFF !important;
+	display:inline-block
+}
+.uos-msg-approval .uos-msg-copy {
+	border:2px solid #3A7849
+}
+/* 2015NOV24 - Changed from .9EM to 1EM so it directly inherits from base.css */ 
+/* Commented out because it is same for all notices */
+/*
+.uos-msg-approval.uos-msg-sidebar {
+	font-size:1em
+}
+*/
+.uos-msg-approval.uos-msg-sidebar .uos-msg-header:before {
+	background-image:url(../img/success-medium.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/success.svg);
+	background-size:22px 22px
+}
+.uos-msg-approval.uos-msg-sidebar .uos-msg-title, .uos-msg-approval.uos-msg-sidebar .uos-msg-subtitle {
+	display:inline-block
+}
+.uos-msg-approval.uos-msg-inline .uos-msg-header:before {
+	background-position: 45% 50%;
+}
+.uos-msg-approval.uos-msg-inline .uos-msg-title {
+	color:#000 !important;
+}
+
+/*********************************************************************************************/
+/*********************************** INSTRUCTIONAL MESSAGE ***********************************/
+/*********************************************************************************************/
+
+.uos-msg-instructional .uos-msg-header {
+	background-color:#2E51A1;
+	border-color:#2E51A1;
+}
+
+/* Consolidated (see .uos-msg-header:before above) the width 42, height 40, left 0 and top 0 because it is now SAME for all notices */
+.uos-msg-instructional .uos-msg-header:before {
+	background:url("../img/info-white.svg") no-repeat 50% 50%;
+	background-image:url(../img/info-white-small.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/info-white.svg);
+	background-size:22px 22px;
+	background-color:#2E51A1;
+}
+.uos-msg-instructional .uos-msg-header:after {
+	background:url(../img/arrow/blue@1x.png) no-repeat
+}
+/* UPDATED 2015NOV24 */
+/*
+.uos-msg-instructional .uos-msg-title {
+	font-size:1.2em
+}
+*/
+.uos-msg-instructional .uos-msg-title, .uos-msg-instructional .uos-msg-subtitle {
+	color:#FFFFFF !important;
+	display:table-cell
+}
+.uos-msg-instructional .uos-msg-copy {
+	border:2px solid #2E51A1
+}
+/* 2015NOV24 - Changed from .9EM to 1EM so it directly inherits from base.css */ 
+/* Commented out because it is same for all notices */
+/*
+.uos-msg-instructional.uos-msg-sidebar {
+	font-size:1em
+}
+*/
+.uos-msg-instructional.uos-msg-sidebar .uos-msg-header:before {
+	background-image:url(../img/info-white-medium.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/info-white.svg);
+	background-size:22px 22px
+}
+.uos-msg-instructional.uos-msg-inline .uos-msg-header:before {
+	background-position: 45% 50%;
+}
+.uos-msg-instructional.uos-msg-inline .uos-msg-title {
+	color:#000 !important;
+}
+
+/*********************************************************************************************/
+/*********************************** NEED TO KNOW MESSAGE ************************************/
+/*********************************************************************************************/
+
+.uos-msg-need-to-know .uos-msg-header {
+	background-color:#2E51A1;
+	border-color:#2E51A1;
+}
+
+/* Consolidated (see .uos-msg-header:before above) the width 42, height 40, left 0 and top 0 because it is now SAME for all notices */
+.uos-msg-need-to-know .uos-msg-header:before {
+	background:url("../img/info-yellow.svg") no-repeat 50% 50%;
+	background-image:url(../img/info-yellow-small.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/info-yellow.svg);
+	background-size:22px 22px;
+	background-color:#2E51A1;
+}
+.uos-msg-need-to-know .uos-msg-header:after {
+	background:url(../img/arrow/blue@1x.png) no-repeat
+}
+/* UPDATED 2015NOV24 */
+/*
+.uos-msg-need-to-know .uos-msg-title {
+	font-size:1.2em
+}
+*/
+.uos-msg-need-to-know .uos-msg-title, .uos-msg-need-to-know .uos-msg-subtitle {
+	color:#FFFFFF !important;
+	display:table-cell
+}
+.uos-msg-need-to-know .uos-msg-copy {
+	border:2px solid #2E51A1
+}
+/* 2015NOV24 - Changed from .9EM to 1EM so it directly inherits from base.css */ 
+/* Commented out because it is same for all notices */
+/*
+.uos-msg-need-to-know.uos-msg-sidebar {
+	font-size:1em
+}
+*/
+.uos-msg-need-to-know.uos-msg-sidebar .uos-msg-header:before {
+	background-image:url(../img/info-yellow-medium.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/info-yellow.svg);
+	background-size:22px 22px
+}
+.uos-msg-need-to-know.uos-msg-inline .uos-msg-header:before {
+	background-position: 45% 50%;
+}
+.uos-msg-need-to-know.uos-msg-inline .uos-msg-title {
+	color:#000 !important;
+}
+
+
+/*********************************************************************************************/
+/*********************************** NICE TO KNOW MESSAGE ************************************/
+/*********************************************************************************************/
+
+.uos-msg-nice-to-know .uos-msg-header {
+	background-color:#FFFFFF;
+	border-color:#2E51A1;
+}
+
+/* Consolidated (see .uos-msg-header:before above) the width 42, height 40, left 0 and top 0 because it is now SAME for all notices */
+.uos-msg-nice-to-know .uos-msg-header:before {
+	background:url("../img/info-blue.svg") no-repeat 50% 50%;
+	background-image:url(../img/info-blue-small.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/info-blue.svg);
+	background-size:22px 22px;
+}
+.uos-msg-nice-to-know .uos-msg-header:after {
+	background:url(../img/arrow/white@1x.png) no-repeat
+}
+
+/* UPDATED 2015NOV24 */
+/*
+.uos-msg-nice-to-know .uos-msg-title {
+	font-size:1.2em
+}
+*/
+
+.uos-msg-nice-to-know .uos-msg-title, .uos-msg-nice-to-know .uos-msg-subtitle {
+	color:#000 !important;
+	display:table-cell
+}
+.uos-msg-nice-to-know .uos-msg-copy {
+	border:2px solid #2E51A1
+}
+/* 2015NOV24 - Changed from .9EM to 1EM so it directly inherits from base.css */ 
+/* Commented out because it is same for all notices */
+/*
+.uos-msg-nice-to-know.uos-msg-sidebar {
+	font-size:1em
+}
+*/
+.uos-msg-nice-to-know.uos-msg-sidebar .uos-msg-header:before {
+	background-image:url(../img/info-blue-medium.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/info-blue.svg);
+	background-size:22px 22px
+}
+.uos-msg-nice-to-know.uos-msg-inline .uos-msg-header:before {
+	background-position: 45% 50%;
+}
+.uos-msg-nice-to-know.uos-msg-inline .uos-msg-title {
+	color:#000 !important;
+}
+
+.uos-msg-nice-to-know.uos-msg-inline .uos-msg-header:before {
+	border-right-style:solid;
+	border-right-color:#2E51A1;
+	border-right-width:2px;
+}
+
+/*********************************************************************************************/
+/*********************************** DISCLOSURE MESSAGE **************************************/
+/*********************************************************************************************/
+
+.uos-msg-disclosure .uos-msg-header {
+	background-color:#E1E1E1;
+	border-color:#E1E1E1;
+}
+
+/* Consolidated (see .uos-msg-header:before above) the width 42, height 40, left 0 and top 0 because it is now SAME for all notices */
+.uos-msg-disclosure .uos-msg-header:before {
+	background:url("../img/disclosure.svg") no-repeat 50% 50%;
+	background-image:url(../img/disclosure-small.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/disclosure.svg);
+	background-size:22px 22px;
+	background-color:#E1E1E1;
+}
+.uos-msg-disclosure .uos-msg-header:after {
+	background:url(../img/arrow/grey@1x.png) no-repeat
+}
+
+/* UPDATED 2015NOV24 */
+/*
+.uos-msg-disclosure .uos-msg-title {
+	font-size:1.2em
+}
+*/
+.uos-msg-disclosure .uos-msg-title, .uos-msg-disclosure .uos-msg-subtitle {
+	color:#000 !important;
+	display:table-cell
+}
+.uos-msg-disclosure .uos-msg-copy {
+	border:2px solid #E1E1E1
+}
+/* 2015NOV24 - Changed from .9EM to 1EM so it directly inherits from base.css */ 
+/* Commented out because it is same for all notices */
+/*
+.uos-msg-disclosure.uos-msg-sidebar {
+	font-size:1em
+}
+*/
+.uos-msg-disclosure.uos-msg-sidebar .uos-msg-header:before {
+	background-image:url(../img/disclosure-medium.png);
+	background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(../img/disclosure.svg);
+	background-size:22px 22px
+}
+.uos-msg-disclosure.uos-msg-inline .uos-msg-header:before {
+	background-position: 45% 50%;
+}
+.uos-msg-disclosure.uos-msg-inline .uos-msg-title {
+	color:#000 !important;
+}
+
+
+/*********************************************************************************************/
+/*********************************** LOADING MESSAGE *****************************************/
+/*********************************************************************************************/
+
+.uos-msg-loading {
+	position:fixed;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	width:100%;
+	height:100%;
+	z-index:99999;
+	background-color:#FFFFFF;
+	background:rgba(255,255,255,0.95);
+	display:none
+}
+.uos-msg-loading.uos-visible {
+	display:table
+}
+.uos-msg-loading-inner {
+	text-align:center;
+	display:table-cell;
+	vertical-align:middle
+}
+.uos-msg-loading-inner h5 {
+	font-family:"MetaBoldLF-Roman", Arial, Verdana, Geneva, Helvetica, sans-serif;
+	color:#2E51A1;
+	font-size:3em;
+	line-height:1em;
+	text-transform:uppercase;
+	margin-bottom:10px !important
+}
+.uos-msg-loading-inner>div {
+	max-width:450px;
+	padding:0 20px
+}
+.uos-msg-loading-subtitle {
+	font-family:"MetaNormalLF-Roman", Arial, Verdana, Geneva, Helvetica, sans-serif;
+	color:#303030;
+	font-size:1.7em;
+	line-height:1em;
+	margin:0 auto 25px auto
+}
+.uos-msg-loading-message {
+	font-family:"MetaNoIt", Arial, Verdana, Geneva, Helvetica, sans-serif;
+	color:#303030;
+	font-size:1.4em;
+	line-height:1.4em;
+	margin:20px auto 0 auto
+}
+.uos-msg-loading-image {
+	margin:0 auto
+}
+.uos-msg-loading-image .loading-image-dot {
+	display:inline-block;
+	background:#2E51A1;
+	width:15px;
+	height:15px;
+	margin-right:10px;
+	-moz-border-radius:25px;
+	-webkit-border-radius:25px;
+	border-radius:25px
+}
+.uos-msg-loading-image .loading-image-dot.active {
+	background:#F7A90D
+}
+ @media (max-width: 767px) {
+.uos-msg-loading {
+	font-size:0.9em
+}
+}
+ @media (max-width: 359px) {
+.uos-msg-loading {
+	font-size:0.8em
+}
+}
+
+/*******************************ACCESSIBILITY OVERLAYS**********************************************/
+
+/** 27APR2016 - Added 40x40 for inline notices - Daraious **/
+.accessibility-overlay-40x40 {
+	position: absolute;
+	left: 0;
+	width:40px;
+	height:40px;
+}
+.accessibility-overlay-50x50 {
+	position: absolute;
+	left: 0;
+	width:50px;
+	height:50px;
+}
+.accessibility-overlay-75x75 {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width:75px;
+	height:75px;
+}

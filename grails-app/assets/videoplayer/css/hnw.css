@@ -1,0 +1,67 @@
+/* controlbar: rewind */
+ul.rbc-controlbar .rewind button,
+.callout .callout-content ul.rbc-controlbar .rewind button {
+    background-image: url(../images/rew-HNW.gif);
+}
+
+/* controlbar: play-pause */
+ul.rbc-controlbar .play-pause button,
+.callout .callout-content ul.rbc-controlbar .play-pause button {
+    background-image: url(../images/play-pause-HNW.gif);
+}
+
+/* controlbar: fast-forward */
+ul.rbc-controlbar .fast-forward button,
+.callout .callout-content ul.rbc-controlbar .fast-forward button {
+    background-image: url(../images/ff-HNW.gif);
+}
+
+/* controlbar: time-slider */
+ul.rbc-controlbar .time-slider,
+.callout .callout-content ul.rbc-controlbar .time-slider {
+    background-image: url(../images/slider-rail-middle-HNW.gif);
+}
+
+ul.rbc-controlbar .time-slider .ui-slider-range,
+.callout .callout-content ul.rbc-controlbar .time-slider .ui-slider-range {
+    background-image: url(../images/slider-blue-bar-HNW.gif);
+}
+
+ul.rbc-controlbar .time-slider .ui-slider-handle,
+.callout .callout-content ul.rbc-controlbar .time-slider .ui-slider-handle {
+    background-image: url(../images/scrubber-handle-HNW.gif);
+}
+
+/* controlbar: transcript */
+ul.rbc-controlbar .transcript a.linkedtextandicon img.icon,
+.callout .callout-content ul.rbc-controlbar .transcript a.linkedtextandicon img.icon {
+    background-image: url(../images/icon-view-transcript-HNW.gif);
+}
+
+/* controlbar: captions */
+ul.rbc-controlbar .captions img,
+.callout .callout-content ul.rbc-controlbar .captions img {
+    background-image: url(../images/icon-view-captions-HNW.gif);
+}
+
+/* controlbar: mute-unmute */
+ul.rbc-controlbar .sound .mute-unmute button,
+.callout .callout-content ul.rbc-controlbar .sound .mute-unmute button {
+    background-image: url(../images/icon-mute-HNW.gif);
+}
+
+/* controlbar: volume-slider */
+ul.rbc-controlbar .sound .volume-slider,
+.callout .callout-content ul.rbc-controlbar .sound .volume-slider {
+    background-image: url(../images/slider-rail-middle-HNW.gif);
+}
+
+ul.rbc-controlbar .sound .volume-slider .ui-slider-range,
+.callout .callout-content ul.rbc-controlbar .sound .volume-slider .ui-slider-range {
+    background-image: url(../images/slider-blue-bar-HNW.gif);
+}
+
+ul.rbc-controlbar .sound .volume-slider .ui-slider-handle,
+.callout .callout-content ul.rbc-controlbar .sound .volume-slider .ui-slider-handle {
+    background-image: url(../images/volume-handle-HNW.gif);
+}

@@ -1,0 +1,93 @@
+<div id="globalfooter-searchbar" class="globalfooter-searchbar-facebook">
+	<a href="/facebook-like.html" id="facebook-like-icon" onclick="return popupNewbrowser(this.href)" class="nohover" title="Follow us on Facebook (opens new window)" target="_blank"></a>
+	<div id="globalfooter-searchbar-search">
+		<form method="get" action="http://search.rbc.com/search?">
+			<input type="text" id="globalfooter-searchbar-search-textfield" name="q" value="Search..." onfocus="if(this.value=='Search...')this.value=''" title="Search" />
+			<span class="button button-tertiary"><span><button type="submit">Search</button></span></span>
+			<input value="xml_no_dtd" name="output" type="hidden" />
+			<input value="rbcBanken_Collection" name="site" type="hidden" />
+			<input value="UTF-8" name="ie" type="hidden" />
+			<input value="UTF-8" name="oe" type="hidden" />
+			<input value="rbcBankEn_frontend" name="client" type="hidden" />
+			<input value="rbcBankEn_frontend" name="proxystylesheet" type="hidden" />
+			<input value="www.rbcroyalbank.com" name="sitesearch" type="hidden" />
+		</form>
+	</div>
+	<p id="globalfooter-searchbar-links"><a href="/search.html">Advanced Search</a></p>
+</div>
+<div id="FooterTabTrigger">
+	<div class="subcopy footer-pullup-tab"><a class="footer-pullup-link" href="javascript:FooterToggle();" title="Hide">Hide<img src="/uos/_assets/images/overlays/icon-collapse.gif" alt="" /></a></div>
+</div>
+<div class="footer-pullup-wpr">
+	<div class="footer-border-top"></div>
+	<div class="footer-pullup-content-wpr">
+	<!-- Top Ten List STARTS -->
+	<div class="ir-top10-wrapper topTenList">	
+	<div class="callout callout-lightblue-gradient standardtextsize"><span class="callout-top"><span>&nbsp;</span></span><div class="callout-content clear">
+		<h2>Top 10 Questions:</h2><p style="float:right;"><a href="javascript:ToggleTopTen(); FooterTrigger();" class="help-closeicon" id="uos-footer-top-ten-button-first"><img src="/uos/_assets/images/overlays/icon-collapse.gif" alt="Close Top 10 Questions" /></a></p>
+		<div class="top10-wrapper"><div class="loading-indication">Loading...</div></div>
+	</div><span class="callout-bottom"><span>&nbsp;</span></span></div>
+	</div>
+	<!-- Form Wrapper STARTS -->
+	<div class="search-ask-wpr">
+		<!-- Social icon starts -->
+		<div class="subcopy social-icon-footer-wpr">
+			<p class="socialtitle"><span><strong>Connect with RBC:</strong></span></p>
+			<a href="http://www.facebook.com/rbcroyalbank" title="Facebook (opens new window)" target="_blank" onclick="return popupNewbrowser(this.href)"><img src="/uos/_assets/images/icons/facebook_20x20.gif" width="20" height="20" alt="Facebook" /></a>
+			<a href="http://twitter.com/RBC_Canada" title="Twitter (opens new window)" target="_blank" onclick="return popupNewbrowser(this.href)"><img src="/uos/_assets/images/icons/twitter_20x20.gif" width="20" height="20" alt="Twitter" /></a>
+			<a href="http://www.youtube.com/user/RBCRoyalBank" title="YouTube (opens new window)" target="_blank" onclick="return popupNewbrowser(this.href)"><img src="/uos/_assets/images/icons/youtube_20x20.gif" width="20" height="20" alt="YouTube" /></a>
+		</div>
+		<!-- Social icon ends -->
+		<table class="subcopy">
+			<tr>
+				<td class="radio-btn">
+					<div class="radio-search-wpr"><input type="radio" id="showfield_search_id" value="ShowSearchField" name="search" /><label for="showfield_search_id">Search</label></div>
+					<div class="radio-ask-wpr"><input type="radio" id="showfield_ask_id" value="ShowAskField" name="search" checked /><label for="showfield_ask_id">Ask</label></div>
+				</td>
+				<td class="input-arrow-wpr"><div></div></td>
+				<!-- ask fields starts -->
+				<form method="get" class="ir-form" action="/cgi-bin/intelliresponse/ask.cgi/response/find">
+				<td class="inputfield-wpr askFields">
+					<div class="input-wpr">
+						<input type="text" id="question" name="question" value="Enter your question here..." onfocus="InputSelect();" maxlength="200" title="Enter your question here..." />
+						<p class="topten"><a href="javascript:ToggleTopTen();FooterTrigger();" id="uos-footer-top-ten-button-second">Top Ten <img src="/new-header-footer/top-ten-down-arrow.gif" alt="" /></a></p>
+					</div>
+				</td>
+				<td class="btn-edge-wrp askFields"><div></div></td>
+				<td class="btn-wrp askFields askBtnBg">
+					<div class="btn-wrp-area">
+						<div class="btn-overlay"><span class="button button-tertiary"><span><button type="submit">Ask</button></span></span></div>
+						<div class="btn-wrp-top"></div>
+					</div>
+				</td>
+				</form>
+				<!-- ask fields ends -->
+				<!-- search field starts -->
+				<form method="get" action="http://search.rbc.com/search?">
+				<td class="inputfield-wpr searchFields">
+					<div class="input-wpr">
+						<input type="text" name="q" value="Search..." onfocus="if(this.value=='Search...')this.value=''" maxlength="200" title="Search" />
+						<input value="xml_no_dtd" name="output" type="hidden" />
+						<input value="rbcBanken_Collection" name="site" type="hidden" />
+						<input value="UTF-8" name="ie" type="hidden" />
+						<input value="UTF-8" name="oe" type="hidden" />
+						<input value="rbcBankEn_frontend" name="client" type="hidden" />
+						<input value="rbcBankEn_frontend" name="proxystylesheet" type="hidden" />
+						<input value="www.rbcroyalbank.com" name="sitesearch" type="hidden" />
+					</div>
+				</td>
+				<td class="btn-edge-wrp searchFields"><div></div></td>
+				<td class="btn-wrp searchFields searchBtnBg">
+					<div class="btn-wrp-area">
+						<div class="btn-overlay"><span class="button button-tertiary"><span><button type="submit">Search</button></span></span></div>
+						<div class="btn-wrp-top"></div>
+					</div>
+				</td>
+				</form>
+				<!-- search field ends -->
+			</tr>
+		</table>
+	</div>
+	<!-- Form Wrapper ENDS -->
+	</div>
+</div>

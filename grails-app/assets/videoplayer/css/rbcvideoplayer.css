@@ -1,0 +1,479 @@
+/*
+ * All selectors below are specified in pairs: one beginning with ".callout .callout-content ul.rbc-controlbar" and one without.
+ * The one without ".callout .callout-content" is to account for the possibility that a video player and its controls may not be contained within a callout.
+ * The one with ".callout .callout-content" is required in order to provide the necessary CSS specificity to override various UOS styling of callout content,
+ * within which a video player and its controls are typically contained. (The alternative would be to sprinkle "!important" throughout, but it would be difficult
+ * to track which properties it must or must not be applied to.)
+ */
+
+/* rbcvideoplayer-container (contains both video and controlbar) */
+.rbcvideoplayer-container,
+.callout .callout-content .rbcvideoplayer-container {
+    zoom: 1;
+    /*
+     * ideally, either inline-block or float left would allow this container (and the controlbar within) to shrink in width to occupy only as much space as needed,
+     * but bugs in IE6/7 + FF2 whereby left-floated or inline-block ancestor containing right-floated descendent forces ancestor to 100% width; so, we instead rely
+     * on an optional outer container (e.g. a callout) to specify an explicit width if 100% is not desired
+    display: inline-block;
+    float: left;
+    */
+}
+
+/* link inside which splash image will be replaced with video, and after which controlbar will be added  */
+.rbcvideoplayer,
+.callout .callout-content .rbcvideoplayer {
+    position: relative;
+    display: block;
+    margin: 4px auto 6px auto;
+    *margin: 6px auto;
+    border: 1px solid #c3cce0;
+}
+
+.callout.callout-noticeblue-gradient .callout-content .rbcvideoplayer,
+.callout.callout-noticeblue-withtitle .callout-content .rbcvideoplayer,
+.callout.callout-noticeblue-flatcolour .callout-content .rbcvideoplayer {
+    border-color: #002888;
+}
+
+.callout.callout-red-gradient .callout-content .rbcvideoplayer,
+.callout.callout-red-withtitle .callout-content .rbcvideoplayer,
+.callout.callout-red-flatcolour .callout-content .rbcvideoplayer {
+    border-color: #9c0000;
+}
+
+.callout.callout-yellow-gradient .callout-content .rbcvideoplayer,
+.callout.callout-yellow-withtitle .callout-content .rbcvideoplayer,
+.callout.callout-yellow-flatcolour .callout-content .rbcvideoplayer {
+    border-color: #fedf01;
+}
+
+.callout.callout-green-gradient .callout-content .rbcvideoplayer,
+.callout.callout-green-withtitle .callout-content .rbcvideoplayer,
+.callout.callout-green-flatcolour .callout-content .rbcvideoplayer {
+    border-color: #005a00;
+}
+
+.callout.callout-taupe-gradient .callout-content .rbcvideoplayer,
+.callout.callout-taupe-withtitle .callout-content .rbcvideoplayer,
+.callout.callout-taupe-notitle .callout-content .rbcvideoplayer {
+    border-color: #cbc19b;
+}
+
+.callout.callout-gray-gradient .callout-content .rbcvideoplayer,
+.callout.callout-gray-withtitle .callout-content .rbcvideoplayer,
+.callout.callout-gray-notitle .callout-content .rbcvideoplayer {
+    border-color: #b8b8b8;
+}
+
+/* controlbar */
+ul.rbc-controlbar,
+.callout .callout-content ul.rbc-controlbar {
+    /* display: inline-block; */
+    margin: 4px 0 6px 0;
+    *margin: 6px auto;
+    padding: 0;
+    list-style-type: none;
+    background: none;
+}
+
+ul.rbc-controlbar li,
+.callout .callout-content ul.rbc-controlbar li {
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+
+/*
+ul.rbc-controlbar li a,
+.callout .callout-content ul.rbc-controlbar li a {
+    display: block;
+    margin: 1px;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+ul.rbc-controlbar li a:focus,
+.callout .callout-content ul.rbc-controlbar li a:focus {
+    outline: 1px dotted #000;
+}
+*/
+
+/* controlbar: rewind */
+ul.rbc-controlbar .rewind,
+.callout .callout-content ul.rbc-controlbar .rewind {
+    float: left;
+    margin: 10px 0 5px 0;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+ul.rbc-controlbar .rewind button,
+.callout .callout-content ul.rbc-controlbar .rewind button {
+    padding: 0;
+    width: 25px;
+    height: 25px;
+    font-size: 0;
+    color: transparent;
+    border: 0;
+    background: transparent url(../images/rew.gif) no-repeat -25px 0;
+    *margin-left: -25px;
+    *text-indent: 25px;
+    *overflow: hidden;
+}
+
+ul.rbc-controlbar .rewind button.hover,
+.callout .callout-content ul.rbc-controlbar .rewind button.hover,
+ul.rbc-controlbar .rewind button.focus,
+.callout .callout-content ul.rbc-controlbar .rewind button.focus {
+    background-position: 0 0;
+}
+
+/* controlbar: play-pause */
+ul.rbc-controlbar .play-pause,
+.callout .callout-content ul.rbc-controlbar .play-pause {
+    float: left;
+    margin: 7px 3px 0 3px;
+    width: 31px;
+    height: 31px;
+    cursor: pointer;
+}
+
+ul.rbc-controlbar .play-pause button,
+.callout .callout-content ul.rbc-controlbar .play-pause button {
+    padding: 0;
+    width: 31px;
+    height: 31px;
+    font-size: 0;
+    color: transparent;
+    border: 0;
+    background: transparent url(../images/play-pause.gif) no-repeat -31px 0;
+    *margin-left: -31px;
+    *text-indent: 31px;
+    *overflow: hidden;
+}
+
+ul.rbc-controlbar .play-pause button.hover,
+.callout .callout-content ul.rbc-controlbar .play-pause button.hover,
+ul.rbc-controlbar .play-pause button.focus,
+.callout .callout-content ul.rbc-controlbar .play-pause button.focus {
+    background-position: 0 0;
+}
+
+ul.rbc-controlbar .play-pause.playing button,
+.callout .callout-content ul.rbc-controlbar .play-pause.playing button {
+    background-position: -93px 0;
+}
+
+ul.rbc-controlbar .play-pause.plaing button.hover,
+.callout .callout-content ul.rbc-controlbar .play-pause.playing button.hover,
+ul.rbc-controlbar .play-pause.playing button.focus,
+.callout .callout-content ul.rbc-controlbar .play-pause.playing button.focus {
+    background-position: -62px 0;
+}
+
+/* controlbar: fast-forward */
+ul.rbc-controlbar .fast-forward,
+.callout .callout-content ul.rbc-controlbar .fast-forward {
+    float: left;
+    margin-top: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+ul.rbc-controlbar .fast-forward button,
+.callout .callout-content ul.rbc-controlbar .fast-forward button {
+    padding: 0;
+    width: 25px;
+    height: 25px;
+    font-size: 0;
+    color: transparent;
+    border: 0;
+    background: transparent url(../images/ff.gif) no-repeat -25px 0;
+    *margin-left: -25px;
+    *text-indent: 25px;
+    *overflow: hidden;
+}
+
+ul.rbc-controlbar .fast-forward button.hover,
+.callout .callout-content ul.rbc-controlbar .fast-forward button.hover,
+ul.rbc-controlbar .fast-forward button.focus,
+.callout .callout-content ul.rbc-controlbar .fast-forward button.focus {
+    background-position: 0 0;
+}
+
+/* controlbar: time-slider */
+ul.rbc-controlbar .time-slider,
+.callout .callout-content ul.rbc-controlbar .time-slider {
+    position: relative;
+    float: left;
+    display: inline-block;
+    margin: 17px 16px 0 16px;
+    width: 20px; /* will be overridden via JS */
+    height: 12px;
+    text-align: center;
+    background: url(../images/slider-rail-middle.gif) repeat-x center center;
+}
+
+ul.rbc-controlbar .time-slider.inactive,
+.callout .callout-content ul.rbc-controlbar .time-slider.inactive {
+    margin-top: 12;
+}
+
+ul.rbc-controlbar .time-slider .rail-left,
+.callout .callout-content ul.rbc-controlbar .time-slider .rail-left {
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: -3px;
+    width: 3px;
+    height: 8px;
+    background: url(../images/slider-rail-left.gif) no-repeat;
+    
+}
+
+ul.rbc-controlbar .time-slider .rail-right,
+.callout .callout-content ul.rbc-controlbar .time-slider .rail-right {
+    display: block;
+    position: absolute;
+    top: 2px;
+    right: -3px;
+    width: 3px;
+    height: 8px;
+    background: url(../images/slider-rail-right.gif) no-repeat;
+}
+
+ul.rbc-controlbar .time-slider .ui-slider-range,
+.callout .callout-content ul.rbc-controlbar .time-slider .ui-slider-range {
+    background: url(../images/slider-blue-bar.gif) repeat-x 3px 5px;
+}
+
+ul.rbc-controlbar .time-slider .ui-slider-handle,
+.callout .callout-content ul.rbc-controlbar .time-slider .ui-slider-handle {
+    top: 0px;
+    margin: 0 0 0 -10px;
+    width: 20px;
+    height: 12px;
+    background: url(../images/scrubber-handle.gif) no-repeat;
+}
+
+ul.rbc-controlbar .time-slider:hover .ui-slider-handle,
+.callout .callout-content ul.rbc-controlbar .time-slider:hover .ui-slider-handle {
+    cursor: e-resize;
+}
+
+ul.rbc-controlbar .time-slider .ui-slider-handle:focus,
+.callout .callout-content ul.rbc-controlbar .time-slider .ui-slider-handle:focus {
+    outline: 1px dotted #000;
+}
+
+ul.rbc-controlbar .time-slider .ui-slider-handle .instructions {
+    position: absolute;
+    left: -9999px;
+    font-size: 0;
+    color: transparent;
+    line-height: 0;
+}
+
+/* controlbar: time-display */
+ul.rbc-controlbar .time-display,
+.callout .callout-content ul.rbc-controlbar .time-display {
+    float: right;
+    margin: 17px 0 4px 0;
+    color: #595959;
+    font-size: 11px;
+    line-height: 11px;
+}
+
+* html ul.rbc-controlbar .time-display,
+* html .callout .callout-content ul.rbc-controlbar .time-display {
+    margin-bottom: 0;
+}
+
+/* controlbar: ie6-linebreak, for ie6 */
+* html ul.rbc-controlbar .ie6-linebreak,
+* html .callout .callout-content ul.rbc-controlbar .ie6-linebreak {
+    margin-top: -6px;
+    width: 50%;
+    height: 1px;
+}
+
+/* controlbar: divider */
+ul.rbc-controlbar .divider,
+.callout .callout-content ul.rbc-controlbar .divider {
+    float: left;
+    width: 15px;
+    height: 18px;
+    background: url(../images/vbar.gif) no-repeat 9px top;
+}
+
+/* controlbar: transcript */
+ul.rbc-controlbar .transcript,
+.callout .callout-content ul.rbc-controlbar .transcript {
+    clear: both;
+    float: left;
+    margin-top: 2px;
+    height: auto !important;
+    height: 17px;
+    min-height: 17px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+ul.rbc-controlbar .transcript a.linkedtextandicon img.icon,
+.callout .callout-content ul.rbc-controlbar .transcript a.linkedtextandicon img.icon {
+    display: inline-block;
+    background-image: url(../images/icon-view-transcript.gif);
+}
+
+/* controlbar: captions */
+ul.rbc-controlbar .captions,
+.callout .callout-content ul.rbc-controlbar .captions {
+    float: left;
+    font-size: 11px;
+    white-space: nowrap;
+    color: #002888;
+}
+
+* html ul.rbc-controlbar .captions,
+* html .callout .callout-content ul.rbc-controlbar .captions {
+    margin-top: 2px;
+}
+
+ul.rbc-controlbar .captions input,
+.callout .callout-content ul.rbc-controlbar .captions input {
+    vertical-align: -2px;
+    *vertical-align: middle;
+}
+
+* html ul.rbc-controlbar .captions input,
+* html .callout .callout-content ul.rbc-controlbar .captions input {
+    vertical-align: top;
+    margin-top: -2px;
+}
+
+ul.rbc-controlbar .captions:hover label,
+.callout .callout-content ul.rbc-controlbar .captions:hover label {
+    background-color: #e5ebf2;
+    color: #000;
+    cursor: pointer;
+}
+
+ul.rbc-controlbar .captions label span,
+.callout .callout-content ul.rbc-controlbar .captions label span {
+    text-decoration: underline;
+}
+
+ul.rbc-controlbar .captions img,
+.callout .callout-content ul.rbc-controlbar .captions img {
+    vertical-align: middle;
+    display: inline-block;
+    background-image: url(../images/icon-view-captions.gif);
+}
+
+/* controlbar: sound */
+ul.rbc-controlbar .sound,
+.callout .callout-content ul.rbc-controlbar .sound {
+    clear: right;
+    float: right;
+    width: 100px;
+    margin-left: 12px;
+}
+
+/* controlbar: mute-unmute */
+ul.rbc-controlbar .sound .mute-unmute,
+.callout .callout-content ul.rbc-controlbar .sound .mute-unmute {
+    float: left;
+    margin-top: 4px;
+    width: 16px;
+    height: 12px;
+    cursor: pointer;
+}
+
+ul.rbc-controlbar .sound .mute-unmute button,
+.callout .callout-content ul.rbc-controlbar .sound .mute-unmute button {
+    padding: 0;
+    width: 16px;
+    height: 12px;
+    font-size: 0;
+    color: transparent;
+    border: 0;
+    background: transparent url(../images/icon-mute.gif) no-repeat 0 0;
+    *margin-left: -16px;
+    *text-indent: 16px;
+    *overflow: hidden;
+}
+
+ul.rbc-controlbar .sound .mute-unmute.muted button,
+.callout .callout-content ul.rbc-controlbar .sound .mute-unmute.muted button {
+    background-position: -16px 0;
+}
+
+/* controlbar: volume-slider */
+ul.rbc-controlbar .sound .volume-slider,
+.callout .callout-content ul.rbc-controlbar .sound .volume-slider {
+    position: relative;
+    float: right;
+    margin: 6px 0 0 8px;
+    width: 76px;
+    height: 8px;
+    background: url(../images/slider-rail-middle.gif) repeat-x center center;
+}
+
+ul.rbc-controlbar .sound .volume-slider .rail-left,
+.callout .callout-content ul.rbc-controlbar .sound .volume-slider .rail-left {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -3px;
+    width: 3px;
+    height: 8px;
+    background: url(../images/slider-rail-left.gif) no-repeat;
+}
+
+ul.rbc-controlbar .sound .volume-slider .rail-right,
+.callout .callout-content ul.rbc-controlbar .sound .volume-slider .rail-right {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -3px;
+    width: 3px;
+    height: 8px;
+    background: url(../images/slider-rail-right.gif) no-repeat;
+}
+
+
+ul.rbc-controlbar .sound .volume-slider .ui-slider-range,
+.callout .callout-content ul.rbc-controlbar .sound .volume-slider .ui-slider-range {
+    background: url(../images/slider-blue-bar.gif) repeat-x 3px 3px;
+}
+
+ul.rbc-controlbar .sound .volume-slider .ui-slider-handle,
+.callout .callout-content ul.rbc-controlbar .sound .volume-slider .ui-slider-handle {
+    top: 0px;
+    margin: 0 0 0 -5px;
+    width: 10px;
+    height: 7px;
+    background: url(../images/volume-handle.gif) no-repeat 0 1px;
+    _overflow: hidden;
+}
+
+ul.rbc-controlbar .sound .volume-slider:hover .ui-slider-handle,
+.callout .callout-content ul.rbc-controlbar .sound .volume-slider:hover .ui-slider-handle {
+    cursor: e-resize;
+}
+
+ul.rbc-controlbar .sound .volume-slider .ui-slider-handle:focus,
+.callout .callout-content ul.rbc-controlbar .sound .volume-slider .ui-slider-handle:focus {
+    outline: 1px dotted #000;
+}
+
+ul.rbc-controlbar .sound .volume-slider .ui-slider-handle .instructions {
+    position: absolute;
+    left: -9999px;
+    font-size: 0;
+    color: transparent;
+    line-height: 0;
+}
